@@ -65,7 +65,7 @@ function App() {
         <CContainer fluid style={{ justifyContent: "center" }}>
           <CNavbarBrand href="#">
             <img
-              src="/logo.png"
+              src="./WhatsAny-1/logo.png"
               alt=""
               width="22"
               height="24"
