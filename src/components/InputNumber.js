@@ -90,18 +90,18 @@ const InputNumber = ({ addContact, editingContact }) => {
                 </label>
                 <div className="card-actions justify-center space-x-4">
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-primary text-gray-100 hover:text-gray-400"
                         onClick={() => addContact(name, countryCode, phoneNumber)}
                         href={"https://wa.me/" + countryCode + phoneNumber}
                     >
-                        Save <CiSaveDown2 />
+                        Save <CiSaveDown2 className="h-6 w-6 cursor-pointer" />
                     </button>
                     <a
-                        className="btn btn-primary"
+                        className="btn btn-primary text-gray-100 hover:text-gray-400"
                         onClick={handleSubmit}
                         href={"https://wa.me/" + countryCode + phoneNumber}
                     >
-                        Message <CiLocationArrow1 />
+                        Message <CiLocationArrow1 className="h-6 w-6 cursor-pointer" />
                     </a>
                 </div>
             </div>

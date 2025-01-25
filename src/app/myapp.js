@@ -13,9 +13,8 @@ function getItemFromLocalStorage(key) {
 }
 
 export default function MyApp() {
-    let initialContacts = getItemFromLocalStorage("whatsany1");
 
-    const [contacts, setContacts] = useState(initialContacts);
+    const [contacts, setContacts] = useState([]);
     const [editingContact, setEditingContact] = useState({name: "", countryCode: "+91", phoneNumber: ""});
 
     const addContact = (name, countryCode, phoneNumber) => {
@@ -36,6 +35,10 @@ export default function MyApp() {
     useEffect(() => {
         localStorage.setItem("whatsany1", JSON.stringify(contacts));
     }, [contacts]);
+
+    useEffect(() => {
+        setContacts(getItemFromLocalStorage("whatsany1"));
+    }, []);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-base-300">

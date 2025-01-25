@@ -28,10 +28,11 @@ const History = ({ contacts, deleteContact, setEditingContact }) => {
                                     {new Date(person.createdAt).toLocaleDateString()}
                                 </div>
                                 <div className="flex gap-3">
-                                    <CiChat1
-                                        className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-600"
+                                    <a
                                         href={"https://wa.me/" + person.countryCode + person.phoneNumber}
-                                    />
+                                    >
+                                        <CiChat1 className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-600" />
+                                    </a>
                                     <CiEdit
                                         className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-600"
                                         onClick={() => {
