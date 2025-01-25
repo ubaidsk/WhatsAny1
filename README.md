@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WhatsAny1 <img src="public/favicon-32x32.png" alt="WhatsAny1 Logo" style="vertical-align: middle;">
 
-## Getting Started
+> Send WhatsApp messages without saving contacts! 📱✨
 
-First, run the development server:
+## 🌟 Features
 
+- 📞 Send messages without saving phone numbers
+- 🌍 Support for multiple country codes
+- 💾 Local storage for contact history
+- 📱 Mobile-friendly interface
+- 🎨 Clean, modern UI with dark mode
+- ⚡ Instant messaging links
+
+## 🚀 Quick Start
+
+1. **Install dependencies:**
+```bash
+npm install
+# or
+yarn install
+```
+
+2. **Run development server:**
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Open your browser:**
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 💡 How to Use
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Enter recipient's name (optional)
+2. Select country code from dropdown
+3. Enter phone number
+4. Click "Message" to start chatting!
 
-## Learn More
+## 🔥 Key Components
 
-To learn more about Next.js, take a look at the following resources:
+- **Quick Message** - Direct messaging without contact saving
+- **Contact History** - Keep track of previous conversations
+- **Country Codes** - Supports multiple international formats
+- **Edit & Delete** - Manage your contact history
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Built With
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 13+
+- React Icons
+- TailwindCSS
+- DaisyUI
+- Local Storage API
 
-## Deploy on Vercel
+## 📱 Progressive Web App
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Install WhatsAny1 on your device for quick access:
+- Available offline
+- Home screen icon
+- Native app-like experience
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first.
+
+## 📄 License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+---
+
+<div align="center">
+Made with ❤️ for easier WhatsApp messaging
+</div>
