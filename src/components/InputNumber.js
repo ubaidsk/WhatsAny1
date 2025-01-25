@@ -1,10 +1,22 @@
 import { CiUser, CiPhone, CiLocationArrow1, CiFlag1, CiSaveDown2 } from "react-icons/ci";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const InputNumber = ({ addContact }) => {
-    const [name, setName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [countryCode, setCountryCode] = useState('+91');
+const countryCodes = [
+    { code: "+1", name: "USA/Canada" },
+    { code: "+44", name: "UK" },
+    { code: "+91", name: "India" },
+    { code: "+92", name: "Pakistan" },
+    { code: "+971", name: "UAE" },
+    { code: "+966", name: "Saudi Arabia" },
+    { code: "+49", name: "Germany" },
+    { code: "+86", name: "China" },
+    // Add more country codes as needed
+];
+
+const InputNumber = ({ addContact, editingContact }) => {
+    const [name, setName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [countryCode, setCountryCode] = useState("+91");
 
     function removeCountryCode(number) {
         // remove the currently set country code from the number
@@ -24,23 +36,19 @@ const InputNumber = ({ addContact }) => {
             alert("Please select a country code.");
             return;
         }
-        addContact(name, `${countryCode}${phoneNumber}`);
+        addContact(name, countryCode, phoneNumber);
         setName('');
         setPhoneNumber('');
         setCountryCode('');
     };
 
-    const countryCodes = [
-        { code: "+1", name: "USA/Canada" },
-        { code: "+44", name: "UK" },
-        { code: "+91", name: "India" },
-        { code: "+92", name: "Pakistan" },
-        { code: "+971", name: "UAE" },
-        { code: "+966", name: "Saudi Arabia" },
-        { code: "+49", name: "Germany" },
-        { code: "+86", name: "China" },
-        // Add more country codes as needed
-    ];
+    useEffect(() => {
+        if (editingContact) {
+            setName(editingContact.name);
+            setPhoneNumber(editingContact.phoneNumber);
+            setCountryCode(editingContact.countryCode);
+        }
+    }, [editingContact]);
 
     return (
         <div>
@@ -83,7 +91,7 @@ const InputNumber = ({ addContact }) => {
                 <div className="card-actions justify-center space-x-4">
                     <button
                         className="btn btn-primary"
-                        onClick={handleSubmit}
+                        onClick={() => addContact(name, countryCode, phoneNumber)}
                         href={"https://wa.me/" + countryCode + phoneNumber}
                     >
                         Save <CiSaveDown2 />

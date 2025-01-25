@@ -12,52 +12,19 @@ function getItemFromLocalStorage(key) {
     return JSON.parse(item);
 }
 
-const people = [
-    {
-        name: "John Doe",
-        phoneNumber: "123-456-7890",
-        createdAt: "2021-09-01T00:00:00.000Z",
-    },
-    {
-        name: "Jane Doe",
-        phoneNumber: "098-765-4321",
-        createdAt: "2021-09-02T00:00:00.000Z",
-    },
-    {
-        name: "John Smith",
-        phoneNumber: "123-456-7890",
-        createdAt: "2021-09-03T00:00:00.000Z",
-    },
-    {
-        name: "Jane Smith",
-        phoneNumber: "098-765-4321",
-        createdAt: "2021-09-04T00:00:00.000Z",
-    },
-];
-
-
-localStorage.setItem("whatsany1", JSON.stringify(people));
-
-let prevContacts = getItemFromLocalStorage("whatsany");
-prevContacts = prevContacts.map((contact) => {
-    contact.createdAt = new Date(contact.createdAt).toISOString();
-    contact.countryCode = "+91";
-    return contact;
-});
-
 export default function MyApp() {
     let initialContacts = getItemFromLocalStorage("whatsany1");
-    initialContacts = initialContacts.concat(prevContacts);
 
     const [contacts, setContacts] = useState(initialContacts);
+    const [editingContact, setEditingContact] = useState({name: "", countryCode: "+91", phoneNumber: ""});
 
-    const addContact = (name, code, number) => {
-        setContacts([...contacts, {
+    const addContact = (name, countryCode, phoneNumber) => {
+        setContacts([{
             name: name,
-            countryCode: code,
-            phoneNumber: number,
+            countryCode: countryCode,
+            phoneNumber: phoneNumber,
             createdAt: new Date().toISOString()
-        }]);
+        }, ...contacts]);
     }
 
     const deleteContact = (contact) => {
@@ -71,14 +38,14 @@ export default function MyApp() {
     }, [contacts]);
 
     return (
-        <div className="h-screen flex items-center justify-center">
-            <div className="card bg-base-100 w-4/5 shadow-xl">
-                <div className="card-body space-y-4">
+        <div className="min-h-screen flex items-center justify-center bg-base-300">
+            <div className="card bg-base-100 w-1/1 shadow-xl">
+                <div className="w-screen card-body space-y-4">
                     <h2 className="card-title">
                         <img src="/favicon-32x32.png"></img>
                         WhatsAny1</h2>
-                    <InputNumber addContact={addContact} />
-                    <History contacts={contacts} deleteContact={deleteContact} />
+                    <InputNumber addContact={addContact} editingContact={editingContact}/>
+                    <History contacts={contacts} deleteContact={deleteContact} setEditingContact={setEditingContact} />
                 </div>
             </div>
         </div>
