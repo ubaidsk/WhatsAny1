@@ -1,11 +1,12 @@
+import NextPWA from '@ducanh2912/next-pwa';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
         turbo: {}
-    }
+    },
+    output: 'export',
 };
-
-import NextPWA from '@ducanh2912/next-pwa';
 
 const withPWA = NextPWA({
     dest: "public",
@@ -19,4 +20,6 @@ const withPWA = NextPWA({
     },
 });
 
-export default withPWA(nextConfig);
+// Make sure to wrap nextConfig with withPWA
+const finalConfig = withPWA(nextConfig);
+export default finalConfig;
