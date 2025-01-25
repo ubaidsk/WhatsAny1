@@ -24,11 +24,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Cache build output
-        uses: actions/cache@v3
-        with:
-          path: out
-          key: ${{ github.sha }}-out
+      - name: Save build output
+        run: |
+          mkdir -p ~/build-output
+          cp -r out/. ~/build-output/
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v3
@@ -42,15 +41,7 @@ jobs:
           mkdir docs
 
       - name: Restore build output
-        uses: actions/cache@v3
-        with:
-          path: out
-          key: ${{ github.sha }}-out
-          restore-keys: |
-            ${{ github.sha }}-out
-
-      - name: Copy build output to docs
-        run: cp -r out/* docs/
+        run: cp -r ~/build-output/. docs/
 
       - name: Configure Git
         run: |
