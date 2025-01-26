@@ -34,12 +34,12 @@ export default function MyApp() {
     }
 
     useEffect(() => {
-        localStorage.setItem("whatsany1", JSON.stringify(contacts));
-    }, [contacts]);
-
-    useEffect(() => {
         setContacts(getItemFromLocalStorage("whatsany1"));
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem("whatsany1", JSON.stringify(contacts));
+    }, [contacts]);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-base-300">
