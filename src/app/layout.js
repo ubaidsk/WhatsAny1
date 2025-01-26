@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import manifest from "@/public/manifest.json";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "WhatsAny1",
   description: "Instant WhatsApp chat links",
-  manifest: manifest.src,
+  manifest: process.env.NODE_ENV === 'production' ? '/whatsany1/manifest.json' : '/manifest.json',
 };
 
 export default function RootLayout({ children }) {
