@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import InputNumber from "@/components/InputNumber";
 import History from "@/components/History";
+import logo from "@/public/favicon-32x32.png";
 
 function getItemFromLocalStorage(key) {
     let item = localStorage.getItem(key);
@@ -45,7 +46,7 @@ export default function MyApp() {
             <div className="card bg-base-100 w-1/1 shadow-xl">
                 <div className="w-screen card-body space-y-4">
                     <h2 className="card-title">
-                        <img src="/favicon-32x32.png"></img>
+                        <img src={logo.src}></img>
                         WhatsAny1</h2>
                     <InputNumber addContact={addContact} editingContact={editingContact}/>
                     <History contacts={contacts} deleteContact={deleteContact} setEditingContact={setEditingContact} />

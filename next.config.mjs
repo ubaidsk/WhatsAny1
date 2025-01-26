@@ -9,7 +9,6 @@ const nextConfig = {
     basePath: process.env.NODE_ENV === 'production' ? '/whatsany1' : '',
     images: {
         unoptimized: true,
-        path: process.env.NODE_ENV === 'production' ? '/whatsany1/_next/image' : '/_next/image',
     },
 };
 
