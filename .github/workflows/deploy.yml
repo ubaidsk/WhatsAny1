@@ -43,6 +43,9 @@ jobs:
       - name: Restore build output
         run: cp -r ~/build-output/. docs/
 
+      - name: Add nojekyll file
+        run: touch docs/.nojekyll
+
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
