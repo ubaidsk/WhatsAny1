@@ -23,25 +23,6 @@ const InputNumber = ({ addContact, editingContact }) => {
         return number.replace(countryCode, '');
     }
 
-    const handleSubmit = () => {
-        if (!name) {
-            alert("Please enter a name.");
-            return;
-        }
-        if (!phoneNumber) {
-            alert("Please enter a phone number.");
-            return;
-        }
-        if (!countryCode) {
-            alert("Please select a country code.");
-            return;
-        }
-        addContact(name, countryCode, phoneNumber);
-        setName('');
-        setPhoneNumber('');
-        setCountryCode('');
-    };
-
     useEffect(() => {
         if (editingContact) {
             setName(editingContact.name);
@@ -92,13 +73,12 @@ const InputNumber = ({ addContact, editingContact }) => {
                     <button
                         className="btn btn-primary text-gray-100 hover:text-gray-400"
                         onClick={() => addContact(name, countryCode, phoneNumber)}
-                        href={"https://wa.me/" + countryCode + phoneNumber}
                     >
                         Save <CiSaveDown2 className="h-6 w-6 cursor-pointer" />
                     </button>
                     <a
                         className="btn btn-primary text-gray-100 hover:text-gray-400"
-                        onClick={handleSubmit}
+                        onClick={() => addContact(name, countryCode, phoneNumber)}
                         href={"https://wa.me/" + countryCode + phoneNumber}
                     >
                         Message <CiLocationArrow1 className="h-6 w-6 cursor-pointer" />

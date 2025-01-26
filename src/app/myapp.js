@@ -34,10 +34,20 @@ export default function MyApp() {
     }
 
     useEffect(() => {
-        setContacts(getItemFromLocalStorage("whatsany1"));
+        let prevContacts = getItemFromLocalStorage("whatsany");
+        prevContacts = prevContacts.map((contact) => {
+            return {
+                name: contact.name,
+                countryCode: "+91",
+                phoneNumber: contact.no,
+                createdAt: new Date("2025-01-26T12:00:00").toISOString()
+            }
+        });
+        setContacts(getItemFromLocalStorage("whatsany1").concat(prevContacts));
     }, []);
 
     useEffect(() => {
+        localStorage.clear();
         localStorage.setItem("whatsany1", JSON.stringify(contacts));
     }, [contacts]);
 
