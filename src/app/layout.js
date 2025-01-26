@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "WhatsAny1",
   description: "Instant WhatsApp chat links",
-  manifest: "/manifest.json",
+  manifest: process.env.NODE_ENV === 'production' ? '/whatsany1/manifest.json' : '/manifest.json',
 };
 
 export default function RootLayout({ children }) {

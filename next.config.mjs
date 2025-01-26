@@ -6,6 +6,11 @@ const nextConfig = {
         turbo: {}
     },
     output: 'export',
+    basePath: process.env.NODE_ENV === 'production' ? '/whatsany1' : '',
+    images: {
+        unoptimized: true,
+        path: process.env.NODE_ENV === 'production' ? '/whatsany1/_next/image' : '/_next/image',
+    },
 };
 
 const withPWA = NextPWA({
